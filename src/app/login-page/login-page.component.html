@@ -1,0 +1,62 @@
+<form [formGroup]="userData">
+  <!-- Email input -->
+
+  <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 ">
+          <div class="form-outline mb-4">
+              <label class="form-label" for="form2Example1">Email address</label>
+
+              <input [class.is-invalid]="userData.get('email')?.invalid && userData.get('email')?.touched"
+                  type="email" class="form-control" formControlName="email" />
+              <div *ngIf="(getEmail?.invalid && getEmail?.touched) || getEmail?.dirty">
+                  <small *ngIf="getEmail?.errors?.['required']" class="text-danger">email is required</small>
+
+                  <small *ngIf="getEmail?.errors?.['pattern']" class="text-danger">Please provide a valid email
+                      address</small>
+              </div>
+
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+              <label class="form-label" for="form2Example2">Password</label>
+              <input [class.is-invalid]="userData.get('password')?.invalid && userData.get('password')?.touched"
+                  type="password" class="form-control" formControlName="password" />
+              <div *ngIf="(getPassword?.invalid && getPassword?.touched) || getPassword?.dirty">
+                  <small *ngIf="getPassword?.errors?.['required']" class="text-danger">Password is required</small>
+
+                  <small *ngIf="getPassword?.errors?.['pattern']" class="text-danger">Please provide a valid email
+                      address</small>
+              </div>
+          </div>
+
+          <!-- 2 column grid layout for inline styling -->
+          <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                  <!-- Checkbox -->
+                  <div class="form-check">
+
+                  </div>
+
+              </div>
+
+              <div class="col">
+
+
+                  <hr>
+                  <!-- Submit button -->
+                  <button type="button" class="btn btn-primary btn-block mb-4 " (click)=" Onsubmit()" >Sign up</button>
+
+                  <!-- Register buttons -->
+                  <hr>
+                  <div class="text-center">
+                      <p>Not a member? <a href="#!">Register</a></p>
+
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</form>
